@@ -39,15 +39,11 @@ function displayBook(bookObj) {
 }
 
 function displayBooks() {
-    // for loop calling displayBook() on every item in the library list
+    for (let book of library) displayBook(book)
 }
 
 addBookToLibrary("book1", "author1", "this is a book")
 addBookToLibrary("book2", "author2", "this is a book")
 addBookToLibrary("book3", "author3", "this is a book")
 
-displayBook(library[0])
-displayBook(library[1])
-displayBook(library[2])
-
-console.log(displayBooks())
+displayBooks()
