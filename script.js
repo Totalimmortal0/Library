@@ -31,10 +31,15 @@ function displayBook(bookObj) {
     newDesc.classList.add("bookDesc")
     newDesc.innerText = bookObj.desc
 
+    const newDeleteBtn = document.createElement("button")
+    newDeleteBtn.classList.add("deleteCardBtn")
+    newDeleteBtn.innerText = "Delete"
+
     newCard.appendChild
     newCard.appendChild(newTitle)
     newCard.appendChild(newAuthor)
     newCard.appendChild(newDesc)
+    newCard.appendChild(newDeleteBtn)
 
     booksCard.appendChild(newCard)
 }
