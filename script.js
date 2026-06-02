@@ -1,17 +1,20 @@
 const booksCard = document.querySelector(".books")
 const newBookBtn = document.querySelector(".newBookBtn")
+const deleteCardBtn = document.querySelector(".deleteCardBtn")
+const addBookModal = document.querySelector("#addBookModal")
 
 let library = []
 
-function Book(title, author, desc, bookID) {
+function Book(title, author, desc, hasRead, bookID) {
     this.title = title
     this.author = author
     this.desc = desc
+    this.hasRead = hasRead
     this.bookID = bookID
 }
 
-function addBookToLibrary(title, author, desc) {
-    const newBook = new Book(title, author, desc, crypto.randomUUID())
+function addBookToLibrary(title, author, desc, hasRead) {
+    const newBook = new Book(title, author, desc, hasRead, crypto.randomUUID())
     library.push(newBook)
 }
 
@@ -48,11 +51,16 @@ function displayBooks() {
     for (let book of library) displayBook(book)
 }
 
-
-// ADD A HASREAD ATTRIBUTE TO BOOK OBJECTS!!
+newBookBtn.addEventListener("click", () => {
+    addBookModal.showModal()
+})
 
 addBookToLibrary("book1", "author1", "this is a book")
 addBookToLibrary("book2", "author2", "this is a book")
 addBookToLibrary("book3", "author3", "this is a book")
+addBookToLibrary("book4", "author4", "this is a book")
+addBookToLibrary("book5", "author5", "this is a book")
+addBookToLibrary("book4", "author4", "this is a book")
+addBookToLibrary("book5", "author5", "this is a book")
 
 displayBooks()

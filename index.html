@@ -11,6 +11,26 @@
     <div class="header">
         <h1>LIBRARY</h1>
         <button class="newBookBtn">New Book</button>
+        <dialog id="addBookModal" closedby="any">
+            <form action="" class="form">
+                <div class="formDiv">
+                    <div class="input">
+                        <label for="titleInput" class="inputLabel">Title: </label>
+                        <input type="text" name="titleInput" id="titleInput">
+                    </div>
+                    <div class="input">
+                        <label for="authorInput" class="inputLabel">Author: </label>
+                        <input type="text" name="authorInput" id="authorInput">
+                    </div>
+                    <div class="input">
+                        <label for="descInput" class="inputLabel">Description: </label>
+                        <input type="text" name="descInput" id="descInput">
+                    </div>
+                </div>
+                <button class="confirmBookBtn" type="submit">Add Book</button>
+                <button class="cancelBtn">Cancel</button>
+            </form>
+        </dialog>
     </div>
     <div class="books">
         <!-- <div class="bookCard">
