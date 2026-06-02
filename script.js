@@ -1,4 +1,5 @@
 const booksCard = document.querySelector(".books")
+const newBookBtn = document.querySelector(".newBookBtn")
 
 let library = []
 
@@ -41,6 +42,9 @@ function displayBook(bookObj) {
 function displayBooks() {
     for (let book of library) displayBook(book)
 }
+
+
+// ADD A HASREAD ATTRIBUTE TO BOOK OBJECTS!!
 
 addBookToLibrary("book1", "author1", "this is a book")
 addBookToLibrary("book2", "author2", "this is a book")
