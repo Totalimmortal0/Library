@@ -7,6 +7,7 @@
 
 body {
     background-color: rgb(22, 22, 29);
+    padding-bottom: 24px;
 }
 
 .header {
@@ -127,6 +128,14 @@ input[type=text] {
 input[type=checkbox] {
     transform: scale(1.3);
     margin-left: 6px;
+}
+
+input[type=submit], input[type=reset] {
+    border: none;
+    border-radius: 12px;
+    color: rgb(0, 109, 109);
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
 }
 
 .input {

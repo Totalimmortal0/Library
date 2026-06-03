@@ -2,7 +2,13 @@ const booksCard = document.querySelector(".books")
 const newBookBtn = document.querySelector(".newBookBtn")
 const deleteCardBtn = document.querySelector(".deleteCardBtn")
 const addBookModal = document.querySelector("#addBookModal")
+const confirmBookBtn = document.querySelector(".confirmBookBtn")
 const cancelBtn = document.querySelector(".cancelBtn")
+
+const titleInput = document.querySelector("#titleInput")
+const authorInput = document.querySelector("#authorInput")
+const descInput = document.querySelector("#descInput")
+const hasReadInput = document.querySelector("#hasReadInput")
 
 let library = []
 
@@ -64,7 +70,19 @@ newBookBtn.addEventListener("click", () => {
 })
 
 cancelBtn.addEventListener("click", () => {
+    addBookModal.close()
+})
+
+confirmBookBtn.addEventListener("click", () => {
     event.preventDefault()
+
+    addBookToLibrary(titleInput.value, authorInput.value, descInput.value, hasReadInput.checked)
+    displayBook(library[library.length - 1])
+
+    titleInput.value = ""
+    authorInput.value = ""
+    descInput.value = ""
+    hasReadInput.checked = false
     addBookModal.close()
 })
 

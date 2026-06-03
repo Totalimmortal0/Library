@@ -16,23 +16,23 @@
                 <div class="formDiv">
                     <div class="input">
                         <label for="titleInput" class="inputLabel">Title: </label>
-                        <input type="text" name="titleInput" id="titleInput">
+                        <input type="text" name="titleInput" id="titleInput" required>
                     </div>
                     <div class="input">
                         <label for="authorInput" class="inputLabel">Author: </label>
-                        <input type="text" name="authorInput" id="authorInput">
+                        <input type="text" name="authorInput" id="authorInput" required>
                     </div>
                     <div class="input">
                         <label for="descInput" class="inputLabel">Description: </label>
-                        <input type="text" name="descInput" id="descInput">
+                        <input type="text" name="descInput" id="descInput" required>
                     </div>
                     <div class="checkmark">
-                        <label for="hasRead" class="inputLabel">Have you finished reading it? </label>
-                        <input type="checkbox" name="hasRead" id="hasRead">
+                        <label for="hasReadInput" class="hasReadInput">Have you finished reading it? </label>
+                        <input type="checkbox" name="hasReadInput" id="hasReadInput">
                     </div>
                 </div>
-                <button class="confirmBookBtn" type="submit">Add Book</button>
-                <button class="cancelBtn">Cancel</button>
+                <input class="confirmBookBtn" type="submit"></input>
+                <input class="cancelBtn" type="reset"></input>
             </form>
         </dialog>
     </div>
