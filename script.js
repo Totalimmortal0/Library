@@ -27,6 +27,7 @@ function addBookToLibrary(title, author, desc, hasRead) {
 function displayBook(bookObj) {
     const newCard = document.createElement("div")
     newCard.classList.add("bookCard")
+    newCard.setAttribute("data-id", bookObj.bookID)
 
     const newTitle = document.createElement("h2")
     newTitle.classList.add("bookTitle")
@@ -41,8 +42,9 @@ function displayBook(bookObj) {
     newDesc.innerText = bookObj.desc
 
     const hasRead = document.createElement("div")
+    hasRead.classList.add("hasRead")
+
     if (bookObj.hasRead === true) {
-        hasRead.classList.add("hasRead")
         hasRead.innerText = "✓"
     }
 
@@ -88,8 +90,19 @@ confirmBookBtn.addEventListener("click", () => {
 })
 
 booksCard.addEventListener("click", () => {
-    // USE THIS WHEN CHANGING HASREAD STATE
-    // console.log(event.target.classList[0])
+    if (event.target.classList[0] === "hasRead") {
+        library.forEach((book) => {
+            if (book.bookID === event.target.parentElement.getAttribute("data-id")) {
+                if (book.hasRead === true) {
+                    event.target.innerText = ""
+                    book.hasRead = false
+                } else {
+                    event.target.innerText = "✓"
+                    book.hasRead = true
+                }
+            }
+        })
+    }
 
     if (event.target.classList[0] === "deleteCardBtn") {
         library = library.filter((book) => {
@@ -97,16 +110,16 @@ booksCard.addEventListener("click", () => {
                 return book
             }
         })
+        displayBooks()
     }
-    displayBooks()
 })
 
-addBookToLibrary("book1", "author1", "this is a book", true)
-addBookToLibrary("book2", "author2", "this is a book", false)
-addBookToLibrary("book3", "author3", "this is a book", true)
-addBookToLibrary("book4", "author4", "this is a book", true)
-addBookToLibrary("book5", "author5", "this is a book", false)
-addBookToLibrary("book6", "author6", "this is a book", true)
-addBookToLibrary("book7", "author7", "this is a book", false)
+// addBookToLibrary("book1", "author1", "this is a book", true)
+// addBookToLibrary("book2", "author2", "this is a book", false)
+// addBookToLibrary("book3", "author3", "this is a book", true)
+// addBookToLibrary("book4", "author4", "this is a book", true)
+// addBookToLibrary("book5", "author5", "this is a book", false)
+// addBookToLibrary("book6", "author6", "this is a book", true)
+// addBookToLibrary("book7", "author7", "this is a book", false)
 
-displayBooks()
+// displayBooks()
