@@ -34,6 +34,13 @@ function displayBook(bookObj) {
     newDesc.classList.add("bookDesc")
     newDesc.innerText = bookObj.desc
 
+    const hasRead = document.createElement("div")
+
+    if (bookObj.hasRead === true) {
+        hasRead.classList.add("hasRead")
+        hasRead.innerText = "✓"
+    }
+
     const newDeleteBtn = document.createElement("button")
     newDeleteBtn.classList.add("deleteCardBtn")
     newDeleteBtn.innerText = "Delete"
@@ -42,6 +49,7 @@ function displayBook(bookObj) {
     newCard.appendChild(newTitle)
     newCard.appendChild(newAuthor)
     newCard.appendChild(newDesc)
+    newCard.appendChild(hasRead)
     newCard.appendChild(newDeleteBtn)
 
     booksCard.appendChild(newCard)
@@ -55,12 +63,12 @@ newBookBtn.addEventListener("click", () => {
     addBookModal.showModal()
 })
 
-addBookToLibrary("book1", "author1", "this is a book")
-addBookToLibrary("book2", "author2", "this is a book")
-addBookToLibrary("book3", "author3", "this is a book")
-addBookToLibrary("book4", "author4", "this is a book")
-addBookToLibrary("book5", "author5", "this is a book")
-addBookToLibrary("book4", "author4", "this is a book")
-addBookToLibrary("book5", "author5", "this is a book")
+addBookToLibrary("book1", "author1", "this is a book", true)
+addBookToLibrary("book2", "author2", "this is a book", false)
+addBookToLibrary("book3", "author3", "this is a book", true)
+addBookToLibrary("book4", "author4", "this is a book", true)
+addBookToLibrary("book5", "author5", "this is a book", false)
+addBookToLibrary("book4", "author4", "this is a book", true)
+addBookToLibrary("book5", "author5", "this is a book", false)
 
 displayBooks()
