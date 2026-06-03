@@ -1,6 +1,5 @@
 const booksCard = document.querySelector(".books")
 const newBookBtn = document.querySelector(".newBookBtn")
-const deleteCardBtn = document.querySelector(".deleteCardBtn")
 const addBookModal = document.querySelector("#addBookModal")
 const confirmBookBtn = document.querySelector(".confirmBookBtn")
 const cancelBtn = document.querySelector(".cancelBtn")
@@ -49,6 +48,7 @@ function displayBook(bookObj) {
 
     const newDeleteBtn = document.createElement("button")
     newDeleteBtn.classList.add("deleteCardBtn")
+    newDeleteBtn.setAttribute("data-id", bookObj.bookID)
     newDeleteBtn.innerText = "Delete"
 
     newCard.appendChild
@@ -62,6 +62,7 @@ function displayBook(bookObj) {
 }
 
 function displayBooks() {
+    booksCard.innerHTML = ""
     for (let book of library) displayBook(book)
 }
 
@@ -84,6 +85,20 @@ confirmBookBtn.addEventListener("click", () => {
     descInput.value = ""
     hasReadInput.checked = false
     addBookModal.close()
+})
+
+booksCard.addEventListener("click", () => {
+    // USE THIS WHEN CHANGING HASREAD STATE
+    // console.log(event.target.classList[0])
+
+    if (event.target.classList[0] === "deleteCardBtn") {
+        library = library.filter((book) => {
+            if (book.bookID !== event.target.getAttribute("data-id")) {
+                return book
+            }
+        })
+    }
+    displayBooks()
 })
 
 addBookToLibrary("book1", "author1", "this is a book", true)
