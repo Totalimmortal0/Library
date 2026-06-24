@@ -11,12 +11,14 @@ const hasReadInput = document.querySelector("#hasReadInput")
 
 let library = []
 
-function Book(title, author, desc, hasRead, bookID) {
-    this.title = title
-    this.author = author
-    this.desc = desc
-    this.hasRead = hasRead
-    this.bookID = bookID
+class Book {
+    constructor(title, author, desc, hasRead, bookID) {
+        this.title = title
+        this.author = author
+        this.desc = desc
+        this.hasRead = hasRead
+        this.bookID = bookID
+    }
 }
 
 function addBookToLibrary(title, author, desc, hasRead) {
